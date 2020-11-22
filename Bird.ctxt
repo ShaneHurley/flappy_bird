@@ -1,0 +1,23 @@
+#BlueJ class context
+comment0.target=Bird
+comment0.text=\n\ Write\ a\ description\ of\ class\ bird1\ here.\n\n\ @author\ (your\ name)\n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment1.params=
+comment1.target=void\ act()
+comment1.text=\n\ Act\ -\ do\ whatever\ the\ bird1\ wants\ to\ do.\ This\ method\ is\ called\ whenever\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\n
+comment2.params=
+comment2.target=void\ apllyGravity()
+comment3.params=
+comment3.target=void\ checkKeys()
+comment4.params=
+comment4.target=void\ rotateBird()
+comment5.params=
+comment5.target=void\ animateBird()
+comment6.params=
+comment6.target=void\ checkCollisions()
+comment7.params=
+comment7.target=int\ getBirdX()
+comment8.params=
+comment8.target=int\ getBirdY()
+comment9.params=x
+comment9.target=void\ addBirdY(double)
+numComments=10

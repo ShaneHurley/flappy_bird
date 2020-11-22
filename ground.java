@@ -15,5 +15,17 @@ public class ground extends SharedResources
     public void act() 
     {
         // Add your action code here.
-    }    
+        moveLeft();
+        removeGround();
+    }  
+    public void removeGround(){
+        if(getX() < -getImage().getWidth()/2){
+            getWorld().removeObject(this);
+        }
+    }
+    
+    public void moveLeft() {
+        setLocation(getX() - xSpeed, getY());
+    }
 }
+

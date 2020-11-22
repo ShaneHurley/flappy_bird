@@ -12,6 +12,8 @@ public class SharedResources extends Actor
     protected  int BirdY = 200;
     protected  int animationDelay = 4;
     protected  int frame = 0;
+    protected  int xSpeed = 4;
+    GreenfootImage ground = new GreenfootImage("ground.png");
     
     /**
      * Act - do whatever the SharedResources wants to do. This method is called whenever
@@ -34,5 +36,5 @@ public class SharedResources extends Actor
          BirdY += (int)x;
     }
     
-     
+    
 }

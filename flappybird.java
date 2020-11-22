@@ -9,11 +9,10 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class flappybird extends World
 {
     GreenfootImage bgImage = new GreenfootImage("background.png");
-    GreenfootImage bird1 = new GreenfootImage("flappybird1.png");
-    GreenfootImage bird2 = new GreenfootImage("flappybird2.png");
-    GreenfootImage bird3 = new GreenfootImage("flappybird3.png");
-    GreenfootImage ground = new GreenfootImage("ground.png");
-
+    ground ground;
+    Pipe Pipe;
+    int pipeCount=0;
+    
     /**
      * Constructor for objects of class flappybird.
      * 
@@ -21,31 +20,59 @@ public class flappybird extends World
     public flappybird()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-       super(600, 400, 1); 
+       super(600, 400, 1,false); 
        setBackground(bgImage);
        populate();
+       setPaintOrder(ground.class,bird1.class,Pipe.class);
     }
     
+    public void act() 
+    {
+        createPipe();
+        createGround();
+    } 
 
     public void populate()
 
     {
         
-    bird1 bird1 = new bird1();
-    addObject(bird1, 80, 200);
+        bird1 bird1 = new bird1();
+        addObject(bird1, 80, 200);
     
-    bird2 bird2 = new bird2();
+        bird2 bird2 = new bird2();
     
-    bird3 bird3 = new bird3();
+        bird3 bird3 = new bird3();
+    
+        ground = new ground();
+        addObject(ground, 309, getHeight()-25);
 
-    bottomPipe bp = new bottomPipe();
-    addObject(bp, 200, 375);
+    }
     
-    topPipe tp = new topPipe();
-    addObject(tp, 200, 0);
+    private void createGround(){
+        if(getObjects(ground.class).size()<3){
+            ground additionalGround = new ground();
+            addObject(additionalGround, 905, getHeight()-25);
+        }
+    }
     
-    ground g = new ground();
-    addObject(g, 300, 375);
-
+    public void createPipe(){
+        Pipe topPipe = new Pipe("top");
+        Pipe botPipe = new Pipe("bottom");
+        
+        int pipeSpacing =150;
+        
+        GreenfootImage image = botPipe.getImage();
+         
+        int numofpipes= Greenfoot.getRandomNumber(10)+4;
+        
+        pipeCount++;
+        
+        if(pipeCount>50){
+            if(getObjects(Pipe.class).size()<numofpipes){
+                addObject(botPipe,getWidth(),getHeight()/2+image.getHeight()-Greenfoot.getRandomNumber(100)-10);
+                addObject(topPipe,getWidth(),botPipe.getY()-image.getHeight()-pipeSpacing);
+            }
+            pipeCount=0;
+        }
     }
  }

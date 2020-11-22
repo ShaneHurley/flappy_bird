@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class bird2 extends bird1
+public class bird2 extends SharedResources
 {
     /**
      * Act - do whatever the bird2 wants to do. This method is called whenever
